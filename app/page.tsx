@@ -12,7 +12,7 @@ export default function HomePage() {
     if (token !== "true") {
       router.push("/login");
     }
-  }, []);
+  }, [router]);
 
   return (
     <div className="p-6">
