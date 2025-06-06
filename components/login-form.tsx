@@ -26,7 +26,7 @@ export function LoginForm({
       localStorage.setItem("token", "true");
       router.push("/");
     } else {
-      setError("密碼錯誤，請再試一次。");
+      setError("密碼錯誤，請再試一次~");
     }
   };
 
