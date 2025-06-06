@@ -17,7 +17,7 @@ export function LoginForm({
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const setEmailStore = useUserStore((state) => state.setEmail); 
+  const setEmailStore = useUserStore((state) => state.setEmail);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
