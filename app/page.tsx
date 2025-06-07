@@ -23,7 +23,7 @@ import { Textarea } from "@/components/ui/textarea";
 export default function HomePage() {
   const router = useRouter();
   const email = useUserStore((state) => state.email);
-  const [debug, setDebug] = useState(false);
+  // const [debug, setDebug] = useState(false);
 
   // ✅ 日期與留言狀態
   const availableDates = [
