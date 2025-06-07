@@ -14,19 +14,27 @@ export function LoginForm({
   ...props
 }: React.ComponentProps<"div">) {
   const router = useRouter();
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const setUsernameStore = useUserStore((state) => state.setUsername);
   const setEmailStore = useUserStore((state) => state.setEmail);
+
+  // 假設這些是允許登入的使用者名稱清單
+  const allowedUsernames = ["黃亦澤", "王小明", "李小華"];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === "123") {
-      setEmailStore(email); // ⬅️ 儲存到 Zustand
+
+    if (allowedUsernames.includes(username)) {
+      setUsernameStore(username); // 儲存 username 到 Zustand
+      setEmailStore(email); // 儲存 email 到 Zustand
       localStorage.setItem("token", "true");
+      localStorage.setItem("username", username); // 也存 localStorage
+      localStorage.setItem("email", email);
       router.push("/");
     } else {
-      setError("密碼錯誤，請再試一次~");
+      setError("使用者名稱錯誤，請再試一次～");
     }
   };
 
@@ -47,16 +55,17 @@ export function LoginForm({
                   placeholder="m@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
               <div className="grid gap-3">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="username">Username</Label>
                 <Input
-                  id="password"
-                  type="password"
-                  placeholder="your chinese full name"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  id="username"
+                  type="text"
+                  placeholder="請輸入你的中文名稱"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   required
                 />
               </div>

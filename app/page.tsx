@@ -23,6 +23,8 @@ import { Textarea } from "@/components/ui/textarea";
 export default function HomePage() {
   const router = useRouter();
   const email = useUserStore((state) => state.email);
+  const name = useUserStore((state) => state.username);
+
   // const [debug, setDebug] = useState(false);
 
   // ✅ 日期與留言狀態
@@ -80,7 +82,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <h1 className="text-xl font-bold">歡迎你，{email}主頁面</h1>
+      <h1 className="text-xl font-bold">歡迎你，{name} 主頁面</h1>
 
       <div className="w-dvw h-dvh text-sm bg-white  sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl flex flex-col items-start justify-center font-overused-grotesk p-10 md:p-16 lg:p-24 text-[#0015ff] tracking-wide uppercase">
         <VerticalCutReveal
@@ -189,6 +191,7 @@ export default function HomePage() {
                   dates: selectedDates.join(", "),
                   message,
                   email: email || "匿名",
+                  name: name || "匿名",
                 },
                 "6Qm2XHYDWXKZXzGhF" // ⬅️ 請替換成你自己的
               )
