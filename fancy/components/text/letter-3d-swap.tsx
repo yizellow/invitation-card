@@ -22,8 +22,11 @@ const splitIntoCharacters = (text: string): string[] => {
 // handy function  to extract text from children
 const extractTextFromChildren = (children: React.ReactNode): string => {
   if (typeof children === "string") return children;
+
   if (React.isValidElement(children)) {
-    const element = children as React.ReactElement;
+    const element = children as React.ReactElement<{
+      children?: React.ReactNode;
+    }>;
     const childText = element.props.children;
     if (typeof childText === "string") return childText;
     if (React.isValidElement(childText)) {
@@ -36,7 +39,6 @@ const extractTextFromChildren = (children: React.ReactNode): string => {
       "Complex nested structures are not supported."
   );
 };
-
 /**
  * Internal helper interface for representing a word in the text with its characters and spacing information
  */
