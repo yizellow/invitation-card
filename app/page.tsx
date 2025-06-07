@@ -29,10 +29,10 @@ export default function HomePage() {
 
   // ✅ 日期與留言狀態
   const availableDates = [
-    "6/22（六）",
-    "6/29（六）",
-    "7/6（六）",
-    "7/13（六）",
+    "6/14（六）19:10",
+    "6/21（六）19:10",
+    "7/19（六）19:10",
+    "7/26（六）19:10",
   ];
   const [selectedDates, setSelectedDates] = useState<string[]>([]);
   const [message, setMessage] = useState("");
