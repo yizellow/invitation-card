@@ -21,7 +21,16 @@ export function LoginForm({
   const setEmailStore = useUserStore((state) => state.setEmail);
 
   // 假設這些是允許登入的使用者名稱清單
-  const allowedUsernames = ["黃亦澤", "鄭楷臻", "黃儀婷","盧亨家","曾若綺","洪珮薰","黃韻玹"];
+  const allowedUsernames = [
+    "黃亦澤",
+    "鄭楷臻",
+    "黃儀婷",
+    "盧亨家",
+    "曾若綺",
+    "洪珮薰",
+    "黃韻玹",
+    "傅正浩",
+  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
